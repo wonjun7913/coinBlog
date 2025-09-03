@@ -2,7 +2,7 @@ import { useState } from 'react'
 import RainAnimation from './RainAnmation'
 import './App.css'
 
-// 데이터와 컴포넌트를 분리했다고 가정
+// 데이터와 컴포넌트를 분리했다고 가정!
 import { historyData } from './data';
 import HistorySection from './HistorySection';
 
