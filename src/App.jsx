@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import RainAnimation from '.RainAnmation'
+import RainAnimation from './RainAnmation'
 import './App.css'
 
 // 데이터와 컴포넌트를 분리했다고 가정
