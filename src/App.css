@@ -215,6 +215,104 @@ hr {
   padding-bottom: 150px; /* 여기 값 수정 */
 }
 
+.timeline {
+  display: flex; /* flexbox를 사용해 항목을 세로로 정렬 */
+  flex-direction: column;
+  position: relative; /* 자식 요소인 선(before)의 기준 */
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+/* 타임라인의 중심선 */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%; /* 컨테이너의 중앙에 위치 */
+  width: 2px;
+  height: 100%;
+  background-color: #555; /* 선 색상 */
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  width: 50%; /* 각 항목이 부모 너비의 절반을 차지 */
+  padding: 20px;
+  position: relative;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+  
+  /* .common-card-style 적용 */
+  border-radius: 12px;
+  border: 2px solid grey;
+}
+
+/* 타임라인 항목의 짝수/홀수 구분 */
+.timeline-item:nth-child(even) { /* 짝수 번째 항목은 오른쪽에 배치 */
+  align-self: flex-end;
+}
+.timeline-item:nth-child(odd) { /* 홀수 번째 항목은 왼쪽에 배치 */
+  align-self: flex-start;
+}
+
+/* 타임라인 점(마커) 추가 */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  top: 30px;
+  width: 15px;
+  height: 15px;
+  background-color: #61dafb; /* React 로고 색상 */
+  border-radius: 50%;
+  border: 2px solid #555;
+  z-index: 1;
+}
+
+/* 짝수 번째 항목의 마커는 오른쪽에 위치 */
+.timeline-item:nth-child(even)::before {
+  left: -7.5px; /* 선 위에 오도록 조정 */
+  transform: translateX(-50%);
+}
+
+/* 홀수 번째 항목의 마커는 왼쪽에 위치 */
+.timeline-item:nth-child(odd)::before {
+  right: -7.5px; /* 선 위에 오도록 조정 */
+  transform: translateX(50%);
+}
+
+.timeline-item h3 {
+  margin-bottom: 10px;
+}
+
+.timeline-item ul {
+  list-style-position: inside; /* 리스트 마커가 안쪽으로 오도록 */
+  padding-left: 0;
+  text-align: left;
+}
+
+/* 모바일 반응형 디자인 */
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 10px; /* 작은 화면에서는 선을 왼쪽으로 이동 */
+    transform: none;
+  }
+  .timeline-item {
+    width: 100%; /* 너비를 100%로 설정 */
+    align-self: flex-start !important; /* 모든 항목을 왼쪽에 배치 */
+    padding-left: 40px; /* 선과 내용 사이의 간격 */
+  }
+  /* 작은 화면에서는 마커를 모두 왼쪽에 배치 */
+  .timeline-item::before {
+    left: 10px;
+    transform: none;
+  }
+  .timeline-item:nth-child(odd)::before,
+  .timeline-item:nth-child(even)::before {
+    right: auto;
+    left: 5px;
+  }
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
