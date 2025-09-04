@@ -195,31 +195,38 @@ hr {
   left: 50%;
   width: 2px;
   height: 100%;
-  background-color: #555;
+  background-color: #777;
   transform: translateX(-50%);
   z-index: 0;
 }
 .timeline-item {
-  width: 50%;
+  width: 42.78%;
   padding: 20px;
   position: relative;
   margin-bottom: 20px;
   transition: transform 0.3s ease;
   border-radius: 12px;
-  border: 2px solid grey;
-  background-color: #2a2a2a;
 }
 .timeline-item:nth-child(odd) {
   align-self: flex-start;
-  padding-right: 20px;
   text-align: right;
 }
 .timeline-item:nth-child(even) {
   align-self: flex-end;
-  padding-left: 20px;
   text-align: left;
 }
-
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  top: 43px;
+  width: 15px;
+  height: 15px;
+  /* 해당 라인 코드는 마커의 안쪽 색깔을 채우는 코드이다 */
+  background-color: #555; 
+  border-radius: 50%;
+  border: 2px solid #555;
+  z-index: 1;
+}
 .timeline-item:nth-child(odd)::before {
   right: -27.5px;
 }
@@ -238,6 +245,7 @@ hr {
 .timeline-item li {
   font-size: 1em;
   margin-bottom: 5px;
+  list-style-type: none;
 }
 .timeline-item:hover {
   transform: translateY(-8px);
@@ -310,5 +318,13 @@ hr {
     padding-right: 20px;
     text-align: left !important;
   }
- 
+  .timeline::before {
+    left: 10px;
+    transform: none;
+  }
+  .timeline-item::before {
+    left: 5px;
+    right: auto;
+    transform: none;
+  }
 }
