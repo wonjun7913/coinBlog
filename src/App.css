@@ -246,11 +246,11 @@ hr {
 /* 타임라인 항목의 짝수/홀수 구분 */
 .timeline-item:nth-child(even) { /* 짝수 번째 항목은 오른쪽에 배치 */
   align-self: flex-end;
-  padding-left: 40px;
+  padding-left: 20px;
 }
 .timeline-item:nth-child(odd) { /* 홀수 번째 항목은 왼쪽에 배치 */
   align-self: flex-start;
-  padding-right: 40px;
+  padding-right: 20px;
 }
 
 .timeline-item::before {
