@@ -65,10 +65,9 @@ hr {
 }
 .stat-item {
   min-width: 200px;
-  /* .common-card-style 적용 */
-  border: 2px solid gray; /* gray 테두리 추가: 2px 두께, solid 스타일, 보라색 */
   border-radius: 10px;
   transition: transform 0.3s ease;
+  border: 2px solid gray;
 }
 .stat-item:hover {
   transform: translateY(-5px);
@@ -95,11 +94,11 @@ hr {
   color: #eee;
   margin-top: 0px;
   margin-bottom: 30px;
-  /* .common-card-style 적용 */
   border-radius: 10px;
   transition: transform 0.3s ease;
   border: 2px solid gray;
 }
+
 .info-box h3 {
   color: white;
   font-size: 1.8em;
@@ -151,13 +150,13 @@ hr {
   max-width: 1000px;
   margin: 0 auto;
 }
+/* 모집 절차 섹션 (수정) */
 .step-item {
   width: 280px;
   padding: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* .common-card-style 적용 */
   border-radius: 12px;
   border: 2px solid grey;
   transition: transform 0.3s ease;
@@ -212,37 +211,34 @@ hr {
 
 .footer-section {
   /* 기존 스타일 */
-  padding-bottom: 150px; /* 여기 값 수정 */
+  padding-bottom: 70px; /* 여기 값 수정 */
 }
 
+/* 연혁 타임라인 (전체 수정 및 추가) */
 .timeline {
-  display: flex; /* flexbox를 사용해 항목을 세로로 정렬 */
+  display: flex;
   flex-direction: column;
-  position: relative; /* 자식 요소인 선(before)의 기준 */
+  position: relative;
   margin: 0 auto;
   max-width: 800px;
 }
 
-/* 타임라인의 중심선 */
 .timeline::before {
   content: '';
   position: absolute;
   top: 0;
-  left: 50%; /* 컨테이너의 중앙에 위치 */
+  left: 50%;
   width: 2px;
   height: 100%;
-  background-color: #555; /* 선 색상 */
+  background-color: #555;
   transform: translateX(-50%);
 }
-
 .timeline-item {
-  width: 50%; /* 각 항목이 부모 너비의 절반을 차지 */
+  width: 50%;
   padding: 20px;
   position: relative;
   margin-bottom: 20px;
   transition: transform 0.3s ease;
-  
-  /* .common-card-style 적용 */
   border-radius: 12px;
   border: 2px solid grey;
 }
@@ -250,66 +246,102 @@ hr {
 /* 타임라인 항목의 짝수/홀수 구분 */
 .timeline-item:nth-child(even) { /* 짝수 번째 항목은 오른쪽에 배치 */
   align-self: flex-end;
+  padding-left: 40px;
 }
 .timeline-item:nth-child(odd) { /* 홀수 번째 항목은 왼쪽에 배치 */
   align-self: flex-start;
+  padding-right: 40px;
 }
 
-/* 타임라인 점(마커) 추가 */
 .timeline-item::before {
   content: '';
   position: absolute;
   top: 30px;
   width: 15px;
   height: 15px;
-  background-color: #61dafb; /* React 로고 색상 */
+  background-color: #61dafb;
   border-radius: 50%;
   border: 2px solid #555;
   z-index: 1;
 }
 
-/* 짝수 번째 항목의 마커는 오른쪽에 위치 */
-.timeline-item:nth-child(even)::before {
-  left: -7.5px; /* 선 위에 오도록 조정 */
-  transform: translateX(-50%);
+/* 공통 카드 스타일 (추가) */
+.common-card-style {
+  border: 2px solid gray;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
 }
 
-/* 홀수 번째 항목의 마커는 왼쪽에 위치 */
 .timeline-item:nth-child(odd)::before {
-  right: -7.5px; /* 선 위에 오도록 조정 */
-  transform: translateX(50%);
+  right: -7.5px;
+}
+.timeline-item:nth-child(even)::before {
+  left: -7.5px;
 }
 
 .timeline-item h3 {
   margin-bottom: 10px;
 }
-
 .timeline-item ul {
-  list-style-position: inside; /* 리스트 마커가 안쪽으로 오도록 */
+  list-style-position: inside;
   padding-left: 0;
   text-align: left;
 }
 
-/* 모바일 반응형 디자인 */
+/* 모바일 반응형 미디어 쿼리 (수정 및 추가) */
 @media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5em;
+  }
+  .hero-content h2 {
+    font-size: 1.5em;
+  }
+  .statistics-section {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .stat-item {
+    min-width: 100%;
+  }
+  .about-section .activity-cards {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .recruitment-info-section {
+    grid-template-columns: 1fr;
+  }
+  .info-box {
+    margin-bottom: 20px;
+  }
+  .info-box h3 {
+    font-size: 1.5em;
+  }
+  .info-box ul li {
+    font-size: 1em;
+  }
+  .process-steps {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 0 10px;
+  }
+  .step-item {
+    width: 90%;
+    max-width: 300px;
+  }
   .timeline::before {
-    left: 10px; /* 작은 화면에서는 선을 왼쪽으로 이동 */
-    transform: none;
-  }
-  .timeline-item {
-    width: 100%; /* 너비를 100%로 설정 */
-    align-self: flex-start !important; /* 모든 항목을 왼쪽에 배치 */
-    padding-left: 40px; /* 선과 내용 사이의 간격 */
-  }
-  /* 작은 화면에서는 마커를 모두 왼쪽에 배치 */
-  .timeline-item::before {
     left: 10px;
     transform: none;
   }
-  .timeline-item:nth-child(odd)::before,
-  .timeline-item:nth-child(even)::before {
-    right: auto;
+  .timeline-item {
+    width: 100%;
+    align-self: flex-start !important;
+    padding-left: 40px;
+    padding-right: 20px;
+  }
+  .timeline-item::before {
     left: 5px;
+    right: auto;
   }
 }
 
