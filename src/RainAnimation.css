@@ -9,8 +9,7 @@
   pointer-events: none;
   z-index: -1;
   background: url("/logo-Photoroom.png") center/cover no-repeat, #1a1a1a;
-  /* opacity: ; */
-
+  opacity: 0.3;
   background-size: 400px;
 }
 
