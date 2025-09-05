@@ -313,7 +313,7 @@ hr {
   }
 
   .timeline-item {
-    width: 100%; /* 너비를 100%로 설정 */
+    width: 70%; /* 너비를 100%로 설정 */
     align-self: flex-start !important;
     padding-left: 40px;
     padding-right: 20px;
