@@ -222,7 +222,7 @@ hr {
   width: 15px;
   height: 15px;
   /* 해당 라인 코드는 마커의 안쪽 색깔을 채우는 코드이다 */
-  background-color: #555; 
+  background-color: #1a1a1a; 
   border-radius: 50%;
   border: 2px solid #555;
   z-index: 1;
@@ -307,24 +307,39 @@ hr {
     padding: 0 10px;
   }
   .step-item {
-    width: 90%;
+    width: 50%;
     max-width: 300px;
   }
 
   .timeline-item {
-    width: 100%;
+    width: 100%; /* 너비를 100%로 설정 */
     align-self: flex-start !important;
     padding-left: 40px;
     padding-right: 20px;
     text-align: left !important;
   }
   .timeline::before {
-    left: 10px;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 15px; /* 중앙선을 왼쪽으로 조정 */
+    width: 2px;
+    height: 100%;
+    background-color: #777;
     transform: none;
+    z-index: 0;
   }
   .timeline-item::before {
-    left: 5px;
+    left: 11px; /* 마커 위치 조정 */
     right: auto;
     transform: none;
+  }
+  .timeline-item:nth-child(odd)::before {
+    left: 7px; /* 홀수 번째 마커도 동일하게 조정 */
+    right: auto;
+  }
+  .timeline-item:nth-child(even)::before {
+    left: 7px; /* 짝수 번째 마커도 동일하게 조정 */
+    right: auto;
   }
 }
