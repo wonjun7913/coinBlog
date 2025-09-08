@@ -1,3 +1,4 @@
+// 백 그라운드 눈 효과 투명도 높이기 
 import { useState } from 'react'
 import RainAnimation from './RainAnimation';
 import './App.css'
@@ -7,6 +8,7 @@ import HistorySection from './HistorySection';
 
 function App() {
   return (
+    
     <div className="App-container">
       <RainAnimation />
 
@@ -161,6 +163,7 @@ function App() {
         <p>&copy; 2025 Coin. All rights reserved.</p>
       </footer>
     </div>
+    
   );
 }
 

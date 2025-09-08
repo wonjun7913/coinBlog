@@ -1,4 +1,3 @@
-/* rainAnimation.jsx 원본 코드 그대로 */
 import React, { useEffect, useState } from 'react';
 import './RainAnimation.css';
 
@@ -27,6 +26,7 @@ const RainAnimation = () => {
 
   return (
     <div className="rain-container">
+      <div className="rain-background"></div>
       {boxes.map((box) => (
         <div
           key={box.id}
