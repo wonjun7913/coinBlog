@@ -69,4 +69,12 @@ export const historyData = [
         '전공 그룹스터디 금상',
       ],
     },
+    {
+      year: '2025년',
+      events: [
+        '제14회 G-창업리그 대상(Arcana)',
+        '제14회 G-창업리그 장려상(Valento)',
+        '제15회 G-창업리그 참가상(PetDoc)',
+      ],
+    },
 ];
